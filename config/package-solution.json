@@ -1,0 +1,42 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "Extended Page Properties",
+    "title": "Extended Page Properties",
+    "id": "479c130b-99ee-4d32-8eee-265277eb1d51",
+    "version": "1.0.0.0",
+    "iconPath": "assets/appicon.png",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.19.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Display editable Page Properties in a web part"
+      },
+      "longDescription": {
+        "default": "Display editable Page Properties in a web part"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "Extended Page Properties Feature",
+        "description": "The feature that activates elements of the Extended Page Properties solution.",
+        "id": "b21a0d4e-bbbc-4f7a-a31d-f54ebc7ca693",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/extended-page-properties.sppkg"
+  }
+}

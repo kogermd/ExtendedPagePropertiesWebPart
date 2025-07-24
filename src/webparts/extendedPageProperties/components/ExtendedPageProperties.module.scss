@@ -1,0 +1,35 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
+
+.extendedPageProperties {
+
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 18px;
+  }
+
+  .content {
+    @include ms-Grid-row;
+
+    .item {
+      @include ms-Grid-col;
+      @include ms-sm12;
+      @include ms-xl6;
+
+      h3 {
+        font-size: 17px;
+        font-weight: 300;
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+
+      .choice {
+        display: flex;
+        gap: 5px;
+      }
+
+    }
+  }
+}
