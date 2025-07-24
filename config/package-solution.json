@@ -4,7 +4,7 @@
     "name": "Extended Page Properties",
     "title": "Extended Page Properties",
     "id": "479c130b-99ee-4d32-8eee-265277eb1d51",
-    "version": "1.0.0.0",
+    "version": "2.0.0.0",
     "iconPath": "assets/appicon.png",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
@@ -32,7 +32,7 @@
         "title": "Extended Page Properties Feature",
         "description": "The feature that activates elements of the Extended Page Properties solution.",
         "id": "b21a0d4e-bbbc-4f7a-a31d-f54ebc7ca693",
-        "version": "1.0.0.0"
+        "version": "2.0.0.0"
       }
     ]
   },
