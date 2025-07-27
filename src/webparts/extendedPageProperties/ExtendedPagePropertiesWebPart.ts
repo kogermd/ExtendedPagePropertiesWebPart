@@ -127,14 +127,14 @@ export default class ExtendedPagePropertiesWebPart extends BaseClientSideWebPart
     // Get the endpoint for the update method of the current page
     const endpoint = `${this.context.pageContext.web.absoluteUrl}/_api/web/lists('${this.context.pageContext.list?.id.toString()}')/items(${this.context.pageContext.listItem?.id})/validateupdatelistitem`;     
 
-    let updateProps:string = `[`;
+    let updateProps:string = `[{`;
 
     pageProperties.forEach(property => {
 
-      if (property.value && property.field?.TypeDisplayName !== "Multiple lines of text" && property.field?.TypeAsString === "MultiChoice") {
+      if (property.value && property.field?.TypeDisplayName !== "Multiple lines of text") {
 
         // Get the separator to use
-        const separator = (updateProps === `[`) ? `{` : `}, {`;
+        const separator = (updateProps === `[{`) ? `` : `}, {`;
 
         // Create the update properties as a JSON string
         updateProps = updateProps + separator + `"FieldName": "` + property.field?.InternalName + `", "FieldValue": ` + this.getPropertyValue(property);
@@ -143,25 +143,31 @@ export default class ExtendedPagePropertiesWebPart extends BaseClientSideWebPart
 
     });
    
-    // Create the JSON object
+    // Close ther properties
     updateProps = updateProps + `}]`;
 
-    const updatedValues = JSON.parse(updateProps); 
+    // If we have properties
+    if (updateProps !== `[{}]`) {
 
-    // Get the shared lock ID used for co-authoring
-    this.getSharedLockId().then(() => {
+      // Convert the properties to a JSON object
+      const updatedValues = JSON.parse(updateProps); 
 
-      // Update the page with the shared lock ID
-      updatePage(this.context.spHttpClient, endpoint, updatedValues, this.sharedLockId)
-        .then(() => {
-          alert("Settings saved successfully!");
-        })
-        .catch((response) => {
-          console.warn(response);
-        });
-    }).catch((response) => {
-      console.warn(response);
-    });
+      // Get the shared lock ID used for co-authoring
+      this.getSharedLockId().then(() => {
+
+        // Update the page with the shared lock ID
+        updatePage(this.context.spHttpClient, endpoint, updatedValues, this.sharedLockId)
+          .then(() => {
+            alert("Settings saved successfully!");
+          })
+          .catch((response) => {
+            console.warn(response);
+          });
+      }).catch((response) => {
+        console.warn(response);
+      });
+
+    }
     
   }
 
